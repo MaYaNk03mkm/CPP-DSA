@@ -16,7 +16,7 @@ int main()
     bool isStudent = false;
     
     //String
-    string fname = "MAYANK";
+    string fname = "MK";
     string lname = "Sharma";
     cout << fname <<" " << lname;
     return 0;
