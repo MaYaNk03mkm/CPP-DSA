@@ -1,28 +1,33 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    int x;
+    cin >> x;
 
-    vector<int> a(n);
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
-
-    int low = 0, high = n - 1;
-
-    while (low < high) {
-        int mid = (low + high) / 2;
-
-        if (a[mid] > a[high])
-            low = mid + 1;
-        else if (a[mid] < a[high])
-            high = mid;
-        else
-            high--;
+    if (x == 0) {
+        cout << 0;
+        return 0;
     }
 
-    cout << a[low];
+    long long low = 1, high = x, ans = 1;
+
+    while (low <= high) {
+        long long mid = (low + high) / 2;
+
+        if (mid * mid == x) {
+            cout << mid;
+            return 0;
+        }
+        else if (mid * mid < x) {
+            ans = mid;
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+
+    cout << ans;
     return 0;
 }
